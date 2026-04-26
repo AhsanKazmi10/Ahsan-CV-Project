@@ -1,0 +1,92 @@
+/* Welcome Screen Overlay */
+.welcome-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #2c3e50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    text-align: center;
+    color: white;
+}
+
+.welcome-content {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 80%;
+    max-width: 500px;
+}
+
+.welcome-content h1 { font-size: 24pt; margin-bottom: 10px; }
+.highlight { color: #e9edc9; }
+.welcome-content p { color: #bdc3c7; margin-bottom: 30px; }
+
+.btn-start {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 14pt;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-start:hover { transform: scale(1.05); background: #2ecc71; }
+
+/* Rest of the App CSS */
+body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #525659; overflow-x: hidden; }
+.app-container { display: flex; width: 100%; height: 100vh; }
+.input-panel { width: 380px; background: #fff; padding: 20px; overflow-y: auto; z-index: 10; }
+.input-panel input, .input-panel textarea { width: 92%; padding: 8px; margin-bottom: 8px; border: 1px solid #ccc; border-radius: 4px; }
+.btn-add { background: #2c3e50; color: white; border: none; padding: 8px; width: 100%; cursor: pointer; margin-bottom: 15px; border-radius: 4px; }
+.btn-print { background: #27ae60; color: white; border: none; padding: 15px; width: 100%; cursor: pointer; font-weight: bold; border-radius: 4px; margin-top: 10px; width: 100%; }
+.preview-panel { flex: 1; display: flex; justify-content: center; padding: 20px; overflow-y: auto; }
+.mobile-tabs { display: none; background: #2c3e50; position: sticky; top: 0; z-index: 100; }
+.tab-btn { flex: 1; padding: 15px; border: none; background: #2c3e50; color: #bdc3c7; font-weight: bold; }
+.tab-btn.active { color: white; border-bottom: 3px solid #e9edc9; }
+
+/* CV Design */
+.cv-page { width: 210mm; min-height: 297mm; background: white; }
+.header { background-color: #e9edc9; height: 160px; padding: 40px 50px; clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
+.header h1 { margin: 0; font-size: 26pt; color: #2c3e50; text-transform: uppercase; }
+.container { display: flex; padding: 20px 50px; }
+.sidebar { width: 30%; padding-right: 20px; border-right: 1px solid #eee; }
+.main { width: 70%; padding-left: 20px; }
+h2 { color: #2c3e50; font-size: 12pt; border-bottom: 2px solid #e9edc9; padding-bottom: 5px; margin-top: 15px; text-transform: uppercase; }
+
+/* Experience & Skills */
+.skill-box { margin-bottom: 8px; }
+.skill-name { font-size: 8pt; font-weight: bold; display: block; }
+.bar-bg { background: #eee; height: 5px; border-radius: 3px; }
+.bar-fill { background: #2c3e50; height: 5px; border-radius: 3px; width: 85%; }
+.experience-item, .edu-item { margin-bottom: 15px; }
+.job-header { display: flex; justify-content: space-between; align-items: baseline; }
+.job-title { font-weight: bold; font-size: 10pt; color: #2c3e50; }
+.job-meta { font-size: 8pt; color: #777; }
+ul { padding-left: 15px; font-size: 9pt; margin: 5px 0; }
+.label { font-weight: bold; display: block; font-size: 7pt; color: #888; margin-top: 8px; }
+.value { font-size: 9pt; }
+
+@media screen and (max-width: 768px) {
+    .mobile-tabs { display: flex; }
+    .app-container { flex-direction: column; }
+    .input-panel, .preview-panel { width: 100% !important; display: none; }
+    .active-tab { display: block !important; }
+    .cv-page { width: 100%; }
+    .container { flex-direction: column; }
+    .sidebar, .main { width: 100%; border: none; }
+}
+
+@media print {
+    body { background: white; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    .input-panel, .mobile-tabs, .welcome-overlay { display: none !important; }
+}

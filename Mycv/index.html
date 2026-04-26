@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Builder | Welcome</title>
+    <link rel="stylesheet" href="Style .css">
+</head>
+<body>
+
+    <div id="welcome-screen" class="welcome-overlay">
+        <div class="welcome-content">
+            <h1>Welcome <span class="highlight"> <br>I Am 'Syed Ahsan Abbas Kazmi' </span></h1>
+            <p>Ready to build a professional CV? <br> Click the button below to start editing.</p>
+            <button class="btn-start" onclick="closeWelcome()">Get Started</button>
+        </div>
+    </div>
+
+    <div class="mobile-tabs">
+        <button id="btn-edit" class="tab-btn active" onclick="showTab('edit')">Edit Details</button>
+        <button id="btn-preview" class="tab-btn" onclick="showTab('preview')">View Preview</button>
+    </div>
+
+    <div class="app-container">
+        <div class="input-panel active-tab" id="input-section">
+            <h2>Personal Info</h2>
+            <input type="text" id="in-name" placeholder="Full Name" value="">
+            <input type="text" id="in-title" placeholder="Job Title" value="">
+            <input type="text" id="in-email" placeholder="Email Address" value="">
+            <input type="text" id="in-phone" placeholder="Phone Number" value="">
+            <input type="text" id="in-location" placeholder="Location" value="">
+            <input type="text" id="in-cnic" placeholder="CNIC Number" value="">
+            
+            <h3>Professional Summary</h3>
+            <textarea id="in-summary" rows="3" placeholder="Brief summary..."></textarea>
+
+            <h3>Skills</h3>
+            <input type="text" id="in-skills" placeholder="Skill 1, Skill 2..." value="">
+
+            <div id="education-inputs">
+                <h3>Education</h3>
+                <div class="edu-group">
+                    <input type="text" class="in-edu-title" placeholder="Degree">
+                    <input type="text" class="in-edu-meta" placeholder="Institute | Year">
+                </div>
+            </div>
+            <button type="button" class="btn-add" onclick="addEducationField()">+ Add Education</button>
+
+            <div id="experience-inputs">
+                <h3>Work Experience</h3>
+                <div class="exp-group">
+                    <input type="text" class="in-job-title" placeholder="Job Title">
+                    <input type="text" class="in-job-meta" placeholder="Company | Date">
+                    <textarea class="in-job-desc" placeholder="Responsibilities"></textarea>
+                </div>
+            </div>
+            <button type="button" class="btn-add" onclick="addExperienceField()">+ Add Job</button>
+            <button type="button" class="btn-print" onclick="window.print()">Download CV (PDF)</button>
+        </div>
+
+        <div class="preview-panel" id="preview-section">
+            <div class="cv-page">
+                <div class="header">
+                    <h1 id="out-name">YOUR NAME</h1>
+                    <p id="out-title">Professional Title</p>
+                </div>
+                <div class="container">
+                    <div class="sidebar">
+                        <h2>Contact</h2>
+                        <div class="section-item"><span class="label">EMAIL</span><span id="out-email" class="value">-</span></div>
+                        <div class="section-item"><span class="label">PHONE</span><span id="out-phone" class="value">-</span></div>
+                        <div class="section-item"><span class="label">LOCATION</span><span id="out-location" class="value">-</span></div>
+                        <div class="section-item"><span class="label">CNIC</span><span id="out-cnic" class="value">-</span></div>
+                       
+                        <h2>Education</h2>
+                        <div id="education-container"></div>
+
+                         <h2>Skills</h2>
+                        <div id="skills-container"></div>
+                    </div>
+                    <div class="main">
+                        <h2>Summary</h2>
+                        <p id="out-summary">Career summary will appear here...</p>
+                        <h2>Work Experience</h2>
+                        <div id="experience-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
